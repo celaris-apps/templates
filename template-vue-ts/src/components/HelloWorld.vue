@@ -8,8 +8,7 @@ const name = ref('')
 
 async function greet() {
   window.greet(name.value).then((res) => {
-    //@ts-ignore
-    greetMsg.value = res['response']
+    greetMsg.value = res.message
   })
 }
 </script>
