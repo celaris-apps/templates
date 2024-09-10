@@ -1,14 +1,16 @@
 <script setup>
 import { ref } from 'vue'
 
-defineProps()
+defineProps({
+  msg: String,
+})
 
 const greetMsg = ref('')
 const name = ref('')
 
 async function greet() {
   window.greet(name.value).then((res) => {
-    greetMsg.value = res['response']
+    greetMsg.value = res['message']
   })
 }
 </script>
