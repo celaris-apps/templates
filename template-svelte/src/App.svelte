@@ -1,31 +1,19 @@
-<script>
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
+<script lang="ts">
+  import celarisLogo from './assets/celaris.svg'
+  import Greeter from './lib/Greeter.svelte'
 </script>
 
 <main>
   <div>
-    <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
+    <a href="https://celaris.cc/" target="_blank">
+      <img src={celarisLogo} class="logo celaris" alt="Celaris logo" />
     </a>
   </div>
-  <h1>Vite + Svelte</h1>
+  <h1>Celaris</h1>
 
   <div class="card">
-    <Counter />
+    <Greeter />
   </div>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
 </main>
 
 <style>
