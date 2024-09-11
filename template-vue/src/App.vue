@@ -4,7 +4,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <div>
-    <a href="https://celaris.org/" target="_blank">
+    <a href="https://celaris.cc/" target="_blank">
       <img src="./assets/celaris.svg" class="logo celaris" alt="Celaris logo" />
     </a>
   </div>
