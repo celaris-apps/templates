@@ -1,6 +1,6 @@
 import './style.css'
 import celarisLogo from '/celaris.svg'
-import { setupGreeter } from './greeter.ts'
+import { setupGreeter } from './greeter.js'
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -16,4 +16,4 @@ document.querySelector('#app').innerHTML = `
   </div>
 `
 
-setupCounter(document.querySelector('#greetBtn'))
+setupGreeter(document.querySelector('#greetBtn'))
