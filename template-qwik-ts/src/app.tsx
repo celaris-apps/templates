@@ -1,29 +1,32 @@
 import { component$, useSignal } from '@builder.io/qwik'
 
-import qwikLogo from './assets/qwik.svg'
-import viteLogo from '/vite.svg'
-import './app.css'
+import celarisLogo from './assets/celaris.svg'
+import './App.css'
 
 export const App = component$(() => {
-  const count = useSignal(0)
+  const name = useSignal('')
+  const greetMsg = useSignal('')
+
+  async function greet() {
+    window.greet(name()).then((res) => {
+      greetMsg.set(res.message)
+    })
+  }
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://qwik.builder.io" target="_blank">
-          <img src={qwikLogo} class="logo qwik" alt="Qwik logo" />
+        <a href="https://celaris.cc/" target="_blank">
+          <img src={celarisLogo} class="logo celaris" alt="Celaris logo" />
         </a>
       </div>
-      <h1>Vite + Qwik</h1>
-      <div class="card">
-        <button onClick$={() => count.value++}>count is {count.value}</button>
-      </div>
-      <p class="read-the-docs">
-        Click on the Vite and Qwik logos to learn more
-      </p>
+      <h1>Celaris</h1>
+
+      <input id="greet-input" value={name} onInput={(e) => name.value = (e.target as HTMLInputElement).value)} placeholder="Enter a name..." />
+      <button type="submit" onClick={greet}>
+        Greet
+      </button>
+      <p>{greetMsg}</p>
     </>
   )
 })
