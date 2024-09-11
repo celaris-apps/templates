@@ -16,13 +16,13 @@ function App() {
     <>
       <div>
         <a href="https://celaris.cc/" target="_blank">
-          <img src={celarisLogo} class="logo celaris" alt="Celaris logo" />
+          <img src={celarisLogo} className="logo celaris" alt="Celaris logo" />
         </a>
       </div>
       <h1>Celaris</h1>
 
-      <input id="greet-input" value={name} onInput={(e) => setName(e.target.value)} placeholder="Enter a name..." />
-      <button type="submit" onClick={() => greet}>
+      <input id="greet-input" value={name} onInput={(e) => setName((e.target as HTMLInputElement).value)} placeholder="Enter a name..." />
+      <button type="submit" onClick={greet}>
         Greet
       </button>
       <p>{greetMsg}</p>

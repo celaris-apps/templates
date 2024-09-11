@@ -21,7 +21,7 @@ function App() {
       </div>
       <h1>Celaris</h1>
 
-      <input id="greet-input" value={name()} onInput={(e) => setName(e.target.value)} placeholder="Enter a name..." />
+      <input id="greet-input" value={name()} onInput={(e) => setName((e.target as HTMLInputElement).value)} placeholder="Enter a name..." />
       <button type="submit" onClick={() => greet()}>
         Greet
       </button>
