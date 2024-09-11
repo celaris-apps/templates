@@ -82,6 +82,16 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+#greet-input {
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  border: 1px solid #1a1a1a;
+  border-radius: 8px;
+  margin-right: 1em;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
