@@ -1,33 +1,31 @@
 import { createSignal } from 'solid-js'
-import solidLogo from './assets/solid.svg'
-import viteLogo from '/vite.svg'
+import celarisLogo from './assets/celaris.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = createSignal(0)
+  const [name, setName] = createSignal('')
+  const [greetMsg, setGreetMsg] = createSignal('')
+
+  async function greet() {
+    window.greet(name()).then((res) => {
+      setGreetMsg(res.message)
+    })
+  }
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://solidjs.com" target="_blank">
-          <img src={solidLogo} class="logo solid" alt="Solid logo" />
+        <a href="https://celaris.cc/" target="_blank">
+          <img src={celarisLogo} class="logo celaris" alt="Celaris logo" />
         </a>
       </div>
-      <h1>Vite + Solid</h1>
-      <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count()}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p class="read-the-docs">
-        Click on the Vite and Solid logos to learn more
-      </p>
+      <h1>Celaris</h1>
+
+      <input id="greet-input" value={name()} onInput={(e) => setName(e.target.value)} placeholder="Enter a name..." />
+      <button type="submit" onClick={() => greet()}>
+        Greet
+      </button>
+      <p>{greetMsg()}</p>
     </>
   )
 }
