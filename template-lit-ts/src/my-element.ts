@@ -32,7 +32,7 @@ export class MyElement extends LitElement {
       <slot></slot>
 
       <input id="greet-input" value=${this.name} @input=${this._onInput} placeholder="Enter a name..." />
-      <button type="submit" onClick=${this.greet}>Greet</button>
+      <button type="submit" @click=${this.greet}>Greet</button>
       <p>${this.greetMsg}</p>
     `
   }
