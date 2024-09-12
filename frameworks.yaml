@@ -1,0 +1,10 @@
+supported:
+  - Lit
+  - Preact
+  # - Qwik (not yet supported - throwing errors on standalone vite)
+  - React
+  - Solid
+  - Svelte
+  - Vanilla
+  - Vue
+  - Custom
