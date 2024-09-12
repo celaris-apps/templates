@@ -2,7 +2,7 @@ import { useState } from 'preact/hooks'
 import celarisLogo from './assets/celaris.svg'
 import './App.css'
 
-function App() {
+export function App() {
   const [name, setName] = useState('')
   const [greetMsg, setGreetMsg] = useState('')
 
@@ -29,5 +29,3 @@ function App() {
     </>
   )
 }
-
-export default App

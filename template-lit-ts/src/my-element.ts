@@ -1,7 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
-import litLogo from './assets/lit.svg'
-import viteLogo from '/vite.svg'
+import celarisLogo from './assets/celaris.svg'
 
 /**
  * An example element.
@@ -12,39 +11,40 @@ import viteLogo from '/vite.svg'
 @customElement('my-element')
 export class MyElement extends LitElement {
   /**
-   * Copy for the read the docs hint.
+   * The message returned from the greet function.
    */
-  @property()
-  docsHint = 'Click on the Vite and Lit logos to learn more'
+  @property({ type: String })
+  greetMsg = ''
 
   /**
-   * The number of times the button has been clicked.
+   * The name to greet.
    */
-  @property({ type: Number })
-  count = 0
+  @property({ type: String })
+  name = ''
 
   render() {
     return html`
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src=${viteLogo} class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://lit.dev" target="_blank">
-          <img src=${litLogo} class="logo lit" alt="Lit logo" />
+        <a href="https://celaris.cc/" target="_blank">
+          <img src=${celarisLogo} class="logo celaris" alt="Celaris logo" />
         </a>
       </div>
       <slot></slot>
-      <div class="card">
-        <button @click=${this._onClick} part="button">
-          count is ${this.count}
-        </button>
-      </div>
-      <p class="read-the-docs">${this.docsHint}</p>
+
+      <input id="greet-input" value=${this.name} @input=${this._onInput} placeholder="Enter a name..." />
+      <button type="submit" onClick=${this.greet}>Greet</button>
+      <p>${this.greetMsg}</p>
     `
   }
 
-  private _onClick() {
-    this.count++
+  private async greet() {
+    window.greet(this.name).then((res) => {
+      this.greetMsg = res.message
+    })
+  }
+
+  private _onInput(e: Event) {
+    this.name = (e.target as HTMLInputElement).value
   }
 
   static styles = css`
@@ -107,6 +107,16 @@ export class MyElement extends LitElement {
     button:focus,
     button:focus-visible {
       outline: 4px auto -webkit-focus-ring-color;
+    }
+
+    #greet-input {
+      padding: 0.6em 1.2em;
+      font-size: 1em;
+      font-weight: 500;
+      font-family: inherit;
+      border: 1px solid #1a1a1a;
+      border-radius: 8px;
+      margin-right: 1em;
     }
 
     @media (prefers-color-scheme: light) {
