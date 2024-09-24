@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import celarisLogo from './assets/celaris.svg'
 import './App.css'
 
@@ -11,6 +11,12 @@ function App() {
       setGreetMsg(res.message)
     })
   }
+
+  useEffect(() => {
+    window.addEventListener('message', (event) => {
+      console.log('Received message:', event)
+    })
+  }, [])
 
   return (
     <>
