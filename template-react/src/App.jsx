@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 import celarisLogo from './assets/celaris.svg'
 import './App.css'
 
+let eventListener = null
 function App() {
   const [name, setName] = useState('')
   const [greetMsg, setGreetMsg] = useState('')
+
 
   async function greet() {
     window.greet(name).then((res) => {
@@ -13,10 +15,14 @@ function App() {
   }
 
   useEffect(() => {
-    window.addEventListener('message', (event) => {
+    // Prevent multiple event listeners during 
+    // development mode (known issue with <React.StrictMode>)
+    if(eventListener !== null) return; 
+
+    eventListener = window.addEventListener('message', (event) => {
       console.log('Received message:', event)
     })
-  }, [])
+  }, [eventListener])
 
   return (
     <>
