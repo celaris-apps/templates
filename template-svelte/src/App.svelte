@@ -1,6 +1,13 @@
 <script lang="ts">
   import celarisLogo from './assets/celaris.svg'
   import Greeter from './lib/Greeter.svelte'
+
+  import { onMount } from "svelte";
+  onMount(() => {
+    window.addEventListener('message', (event) => {
+      console.log('Received message:', event)
+    });
+  });
 </script>
 
 <main>
