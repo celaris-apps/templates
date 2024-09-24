@@ -1,4 +1,4 @@
-import { createSignal } from 'solid-js'
+import { createSignal, onMount } from 'solid-js'
 import celarisLogo from './assets/celaris.svg'
 import './App.css'
 
@@ -11,6 +11,12 @@ function App() {
       setGreetMsg(res.message)
     })
   }
+
+  onMount(() => {
+    window.addEventListener('message', (event) => {
+      console.log('Received message:', event)
+    })
+  })
 
   return (
     <>
