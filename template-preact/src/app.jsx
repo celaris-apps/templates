@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks'
+import { useState, useEffect } from 'preact/hooks'
 import celarisLogo from './assets/celaris.svg'
 import './App.css'
 

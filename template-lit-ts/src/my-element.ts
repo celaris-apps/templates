@@ -23,6 +23,9 @@ export class MyElement extends LitElement {
   name = ''
 
   render() {
+    window.addEventListener('message', (event) => {
+      console.log('Received message:', event)
+    })
     return html`
       <div>
         <a href="https://celaris.cc/" target="_blank">
