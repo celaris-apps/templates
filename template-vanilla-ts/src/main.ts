@@ -2,6 +2,10 @@ import './style.css'
 import celarisLogo from '/celaris.svg'
 import { setupGreeter } from './greeter.ts'
 
+window.addEventListener('message', (event) => {
+  console.log('Received message:', event)
+})
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
   <a href="https://celaris.cc/" target="_blank">

@@ -1,5 +1,13 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
+
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  window.addEventListener('message', (event) => {
+    console.log('Received message:', event)
+  })
+})
 </script>
 
 <template>
