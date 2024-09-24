@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks'
+import { useState, useEffect } from 'preact/hooks'
 import celarisLogo from './assets/celaris.svg'
 import './App.css'
 
@@ -11,6 +11,12 @@ export function App() {
       setGreetMsg(res.message)
     })
   }
+
+  useEffect(() => {
+    window.addEventListener('message', (event) => {
+      console.log('Received message:', event)
+    })
+  }, [])
 
   return (
     <>

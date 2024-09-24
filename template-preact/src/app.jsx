@@ -12,6 +12,12 @@ export function App() {
     })
   }
 
+  useEffect(() => {
+    window.addEventListener('message', (event) => {
+      console.log('Received message:', event)
+    })
+  }, [])
+
   return (
     <>
       <div>
